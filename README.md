@@ -40,11 +40,8 @@ jobs:
   feature-flag-evaluation:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Evaluate Feature Flags
-        uses: wingify/vwo-fme-github-action@v1.0.0
+        uses: wingify/vwo-fme-github-action@v1.1.0
         with:
           flagsWithVariables: |
             {
