@@ -1,0 +1,23 @@
+# action.yml
+name: 'VWO FME Github Action'
+description: 'Evaluate Feature Flags in VWO using GitHub Actions'
+author: 'Abhishek Joshi'
+
+inputs:
+  flagsWithVariables:
+    description: 'A JSON with the feature flag keys and their default values. e.g. {"flagKey1":{"variableKey":"variableDefaultValue"}}'
+    required: true
+  userContext:
+    description: 'Context of the user for which the flag needs to be evaluated, e.g. {"id":"your-user-id"}'
+    required: true
+  sdkInitOptions:
+    description: 'Optional configuration needed to initialize the SDK'
+    required: false
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js' # Points to the compiled JS file
+
+branding:
+  icon: 'toggle-right'
+  color: 'blue'
