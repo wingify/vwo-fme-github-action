@@ -1,3 +1,3 @@
 yarn check:license
 yarn lint
-yarn build && git add dist && git diff --cached --quiet || git commit -m "chore: build"
+yarn build:ts && yarn build:action && git add ts-dist dist && git diff --cached --quiet || git commit -m "chore: build"
