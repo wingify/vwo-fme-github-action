@@ -1,0 +1,51 @@
+{
+  "name": "vwo-fme-github-action",
+  "version": "1.0.0",
+  "description": "Allows you to evaluate feature flags using the VWO platform via GitHub Action",
+  "main": "dist/index.js",
+  "license": "Apache-2.0",
+  "author": "VWO developers",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint 'src/**/*.{ts,js}'",
+    "lint:errors-only": "node -e 'require(\"./scripts/check-versions\")([\"nodeLint\"])' && eslint **/*.ts' --fix --quiet",
+    "prepare": "husky",
+    "check:license": "yarn check:versions && node -e 'require(\"./scripts/check-license\")'",
+    "check:versions": "node -e 'require(\"./scripts/check-versions\")'",
+    "prettier": "prettier -w lib/**/*.ts *.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wingify/vwo-fme-github-action"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@eslint/js": "^9.11.1",
+    "@types/node": "^22.7.2",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "eslint": "^9.11.1",
+    "globals": "^15.9.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "axios": "^1.7.7",
+    "vwo-fme-node-sdk": "^1.8.0"
+  },
+  "lint-staged": {
+    "**/*.{ts,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
